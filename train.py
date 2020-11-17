@@ -6,7 +6,6 @@ from sklearn.metrics import mean_squared_error
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.preprocessing import StandardScaler
 import pandas as pd
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
@@ -16,7 +15,7 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 dataset = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
-ds = TabularDatasetFactory.from_delimited_files(path=dataset)
+ds = Dataset.Tabular.from_delimited_files(path=dataset)
 
 def clean_data(data):
     # Dict for cleaning data
@@ -48,10 +47,8 @@ def clean_data(data):
 x, y = clean_data(ds)
 
 # TODO: Split data into train and test sets.
-
 xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size = 0.2, random_state = 0) 
-
-#from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler()
 scaler = StandardScaler()
 scaler.fit(x)
 scaled_data = scaler.transform(x)
@@ -79,8 +76,9 @@ def main():
     accuracy = model.score(x_test, y_test)
     run.log("Accuracy", np.float(accuracy))
     
-    os.makedirs('output',exist_ok=True)
+    os.makedirs('output'exist_ok=True)
     joblib.dump(LogisticRegression, 'outputs/model.joblib')
 
 if __name__ == '__main__':
     main()
+
