@@ -61,10 +61,15 @@ Both architectures can be seen and compared in the images below.
 ![alt text](https://github.com/hammad-alt/udacityproject1/blob/main/images/4.PNG)
 Some important parameters for automl_config are following:
 1. **primary_metric** is Accuracy
+
 2. **primary_task** is Classification to either 1 or 0 i.e either a Yes or a No.
+
 3. **n_cross_validations and training_data** five folds for cross-validation are defined. Hence, five different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time. As a result, metrics are calculated with the average of the 5 validation metrics.
+
 4.**max_concurrent_iteration** Represents the maximum number of iterations that would be executed in parallel.
+
 5.**compute_target** The Azure Machine Learning compute target to run the Automated Machine Learning experiment on.
+
 The difference in accuracy is not too much. AutoML accuracy -> 0.91720 Hyperdrive accuracy -> 0.91105. The difference is definitely a result of the difference in the batch size of the runs and the maximum number of iterations performed. A bigger difference can also be linked to the use of different algorithms in both cases. In addition, the metrics for measuring performance of the two models is explained below:
 ROC Curve: The function takes both the true outcomes (0,1) from the test set and the predicted probabilities for the 1 class. The function returns the false positive rates for each threshold, true positive rates for each threshold and thresholds. The AUC for the ROC can be calculated using the roc_auc_score() function. Like the roc_curve() function, the AUC function takes both the true outcomes (0,1) from the test set and the predicted probabilities for the 1 class. It returns the AUC score between 0.0 and 1.0 for no skill and perfect skill respectively. 
 There are many ways to evaluate the skill of a prediction model. An approach in the related field of information retrieval (finding documents based on queries) measures precision and recall. These measures are also useful in applied machine learning for evaluating binary classification models. Precision is a ratio of the number of true positives divided by the sum of the true positives and false positives. It describes how good a model is at predicting the positive class. Precision is referred to as the positive predictive value. i.e **Precision = True Positives / (True Positives + False Positives)** Recall is calculated as the ratio of the number of true positives divided by the sum of the true positives and the false negatives. Recall is the same as sensitivity. i.e **Recall = True Positives / (True Positives + False Negatives)**. Reviewing both precision and recall is useful in cases where there is an imbalance in the observations between the two classes. Specifically, there are many examples of no event (class 0) and only a few examples of an event (class 1). As such in this experiment we had Zero imbalance in the observations recorded. So, the primary metric was **Accuracy** alone.
