@@ -1,6 +1,7 @@
 # Optimizing an ML Pipeline in Azure
 
-## Overview: The main objective of this project was tp learn the power of Azure ML studio. And how to use some common methods to create and optimize an ML pipeline using Python SDK and a provided Scikit learn model. And then to compare with Azure AutoML run and both their results.
+## Overview: 
+The main objective of this project was tp learn the power of Azure ML studio. And how to use some common methods to create and optimize an ML pipeline using Python SDK and a provided Scikit learn model. And then to compare with Azure AutoML run and both their results.
 
 ## Summary: 
 We were given two notebooks namely project.ipynb and a train.py. It already had all the instructoins on how to procedd with the task upto its successful completion. For any trivial queries or better understanding the syntax, there was plenty of context on Official Microsoft Documentation for Azure. The dataset was about a bank marketing and we had to predict if a customer will subscribe to bank term deposit. The best performing model was a Soft Voting Ensemble found using AutoML. It contained XGBoost Classifier with a standard scaler wrapper.
@@ -42,7 +43,7 @@ Both architectures can be seen and compared in the images below.
 The difference is definitely a result of the difference in the batch size of the runs and the maximum number of iterations performed. A bigger difference can also be linked to the use of different algorithms in both cases.
 ![alt text](https://github.com/hammad-alt/udacityproject1/blob/main/images/4.1.PNG)
 ## Future Work
-** What are some areas of improvement for future experiments? Why might these improvements help the model? I would love to give my custom cross validation strategy for the future experiments.** 
+**What are some areas of improvement for future experiments? Why might these improvements help the model? I would love to give my custom cross validation strategy for the future experiments.** 
 For future experiments, the project can be expanded to include other metrics for logistic regression studies such as maximum number of batch sizes, loss functions, L2 regularization and median absolute errors. Classification reports from the XGBoosting function can be expanded to include a matrix for false positives, false negatives, true positives and true negatives. The threshold for parameters can also be expanded to include a wider range. All these steps will help in providing a clearer interpretation of the models and their approach to predicting the output.
 
 ### If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section. 
